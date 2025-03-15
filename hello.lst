@@ -1,0 +1,17 @@
+     1                                  section .data
+     2 00000000 48656C6C6F20776F72-     	msg db "Hello world:", 10, 0
+     2 00000009 6C643A0A00         
+     3                                  	
+     4                                  section .text
+     5                                  	global main:
+     6                                  main:
+     7 00000000 BF01000000              	mov rdi, 1       ; 1 = stdout
+     8 00000005 B801000000              	mov rax, 1       ; 1 = write
+     9 0000000A 48BE-                   	mov rsi, msg
+     9 0000000C [0000000000000000] 
+    10 00000014 BA0D000000              	mov rdx, 13      ; number of characters
+    11                                  	
+    12 00000019 0F05                    	syscall 	
+    13 0000001B B83C000000              	mov rax, 60
+    14 00000020 BF00000000              	mov rdi, 0
+    15 00000025 0F05                    	syscall
